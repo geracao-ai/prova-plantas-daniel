@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prova de Plantas do Daniel</title>
+<style>
+  body { 
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+    background-color: #e0f7fa; 
+    color: #333; 
+    padding: 20px; 
+    text-align: center; 
+  }
+  .quiz-container { 
+    background: white; 
+    border-radius: 15px; 
+    padding: 20px; 
+    max-width: 600px; 
+    margin: auto; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+    border: 4px solid #4caf50;
+  }
+  input[type="text"] { 
+    width: 80%; 
+    padding: 12px; 
+    margin-top: 10px; 
+    border: 2px solid #00bcd4; 
+    border-radius: 8px; 
+    font-size: 16px; 
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+  }
+  button { 
+    background-color: #ff9800; 
+    color: white; 
+    border: none; 
+    padding: 15px 30px; 
+    font-size: 20px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    margin-top: 20px; 
+    font-weight: bold; 
+    box-shadow: 0 4px 0 #e65100;
+  }
+  button:active {
+    box-shadow: none;
+    transform: translateY(4px);
+  }
+  .question { 
+    margin-bottom: 20px; 
+    text-align: left; 
+    background: #f1f8e9;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  .feedback { 
+    margin-top: 8px; 
+    font-weight: bold; 
+    font-size: 18px;
+  }
+  img { 
+    max-width: 100%; 
+    border-radius: 10px; 
+    margin-bottom: 20px;
+  }
+  h1 { 
+    color: #2e7d32; 
+    font-size: 32px;
+  }
+</style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Prova de Plantas do Daniel 🌱</h1>
+  
+  <img src="plant_watering_1773156111437.png" alt="A mascot watering a plant">
+  
+  <div class="question">
+    <img src="plant_watering_1773156111437.png" style="max-height: 180px; display: block; margin: 0 auto 10px; border-radius: 10px;">
+    <p><b>1. O que uma plantinha MAIS precisa para crescer forte e saudável?</b></p>
+    <input type="text" id="q1" placeholder="Pode digitar aqui...">
+    <div id="f1" class="feedback"></div>
+  </div>
+
+  <div class="question">
+    <img src="plant_roots_1773158447110.png" style="max-height: 180px; display: block; margin: 0 auto 10px; border-radius: 10px;">
+    <p><b>2. Qual é a parte da planta que geralmente fica escondida debaixo da terra e puxa a água para ela beber?</b></p>
+    <input type="text" id="q2" placeholder="Pode digitar aqui...">
+    <div id="f2" class="feedback"></div>
+  </div>
+
+  <div class="question">
+    <img src="plant_lifecycle_1773158461871.png" style="max-height: 180px; display: block; margin: 0 auto 10px; border-radius: 10px;">
+    <p><b>3. As plantas são seres vivos. Isso significa que elas nascem, crescem e um dia morrem. (Escreva: Verdadeiro ou Falso)</b></p>
+    <input type="text" id="q3" placeholder="Pode digitar aqui...">
+    <div id="f3" class="feedback"></div>
+  </div>
+
+  <div class="question">
+    <img src="tree_trunk_1773158476759.png" style="max-height: 180px; display: block; margin: 0 auto 10px; border-radius: 10px;">
+    <p><b>4. O tronco da árvore também pode ser chamado de caule. Para que ele serve?</b></p>
+    <input type="text" id="q4" placeholder="Pode digitar aqui...">
+    <div id="f4" class="feedback"></div>
+  </div>
+
+  <div class="question">
+    <img src="flower_bee_1773158490871.png" style="max-height: 180px; display: block; margin: 0 auto 10px; border-radius: 10px;">
+    <p><b>5. Qual é a parte da planta que costuma ser bem colorida, cheirosa e que atrai as abelhas e as borboletas?</b></p>
+    <input type="text" id="q5" placeholder="Pode digitar aqui...">
+    <div id="f5" class="feedback"></div>
+  </div>
+
+  <button onclick="checkAnswers()">Terminei! Corrigir Prova ✅</button>
+  <h2 id="resultMsg"></h2>
+</div>
+
+<script>
+function checkAnswers() {
+  let score = 0;
+
+  // Q1
+  let a1 = document.getElementById("q1").value.toLowerCase();
+  let f1 = document.getElementById("f1");
+  if (a1.includes("agua") || a1.includes("água") || a1.includes("sol") || a1.includes("terra") || a1.includes("luz")) {
+    f1.innerHTML = "Correto! 🎉 Você acertou!";
+    f1.style.color = "green";
+    score++;
+  } else if (a1 === "") {
+    f1.innerHTML = "Você esqueceu de responder essa! 🙊";
+    f1.style.color = "#e65100";
+  } else {
+    f1.innerHTML = "Quase lá! Lembre que elas precisam muito de água e luz do sol.";
+    f1.style.color = "red";
+  }
+
+  // Q2
+  let a2 = document.getElementById("q2").value.toLowerCase();
+  let f2 = document.getElementById("f2");
+  if (a2.includes("raiz") || a2.includes("raízes") || a2.includes("raizes")) {
+    f2.innerHTML = "Correto! 🎉 É a raiz!";
+    f2.style.color = "green";
+    score++;
+  } else if (a2 === "") {
+    f2.innerHTML = "Você esqueceu de responder essa! 🙊";
+    f2.style.color = "#e65100";
+  } else {
+    f2.innerHTML = "Ops! A resposta certa era Raiz.";
+    f2.style.color = "red";
+  }
+
+  // Q3
+  let a3 = document.getElementById("q3").value.toLowerCase();
+  let f3 = document.getElementById("f3");
+  if (a3.includes("verdadeiro") || a3 === "v") {
+    f3.innerHTML = "Correto! 🎉 Muito bem!";
+    f3.style.color = "green";
+    score++;
+  } else if (a3 === "") {
+    f3.innerHTML = "Você esqueceu de responder essa! 🙊";
+    f3.style.color = "#e65100";
+  } else {
+    f3.innerHTML = "Poxa, a resposta era Verdadeiro! As plantinhas são como nós, têm vida.";
+    f3.style.color = "red";
+  }
+
+  // Q4
+  let a4 = document.getElementById("q4").value.toLowerCase();
+  let f4 = document.getElementById("f4");
+  if (a4.includes("segurar") || a4.includes("levar") || a4.includes("água") || a4.includes("agua") || a4.includes("em pé") || a4.includes("pe") || a4.includes("sustentar")) {
+    f4.innerHTML = "Correto! 🎉 Arrasou na resposta!";
+    f4.style.color = "green";
+    score++;
+  } else if (a4 === "") {
+    f4.innerHTML = "Você esqueceu de responder essa! 🙊";
+    f4.style.color = "#e65100";
+  } else {
+    f4.innerHTML = "Quase! Ele serve para segurar as folhas e levar a água para elas!";
+    f4.style.color = "red";
+  }
+
+  // Q5
+  let a5 = document.getElementById("q5").value.toLowerCase();
+  let f5 = document.getElementById("f5");
+  if (a5.includes("flor") || a5.includes("flores")) {
+    f5.innerHTML = "Correto! 🎉 São as flores!";
+    f5.style.color = "green";
+    score++;
+  } else if (a5 === "") {
+    f5.innerHTML = "Você esqueceu de responder essa! 🙊";
+    f5.style.color = "#e65100";
+  } else {
+    f5.innerHTML = "Ops! A resposta era Flor 🌻.";
+    f5.style.color = "red";
+  }
+
+  let resultMsg = document.getElementById("resultMsg");
+  if (score === 5) {
+    resultMsg.innerHTML = "PARABÉNS, DANIEL! VOCÊ TIROU NOTA 10! 🏆✨🥇";
+    resultMsg.style.color = "green";
+  } else {
+    resultMsg.innerHTML = "Você acertou " + score + " de 5! Continue estudando, você é muito inteligente! 📚🤓";
+    resultMsg.style.color = "#f57c00";
+  }
+}
+</script>
+
+</body>
+</html>
