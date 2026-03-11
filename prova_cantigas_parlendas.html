@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prova de Cantigas e Parlendas!</title>
+<style>
+  body { 
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+    background-color: #e0f7fa; /* Azul bem clarinho */
+    color: #333; 
+    padding: 20px; 
+    text-align: center; 
+  }
+  .quiz-container { 
+    background: white; 
+    border-radius: 15px; 
+    padding: 20px; 
+    max-width: 700px; 
+    margin: auto; 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2); 
+    border: 5px dashed #00bcd4;
+  }
+  .question { 
+    margin-bottom: 25px; 
+    text-align: left; 
+    background: #b2ebf2;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #0097a7;
+  }
+  .drawing-container {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  .option-label {
+    background-color: #ffffff;
+    border: 2px solid #00acc1;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+  }
+  .option-label:hover {
+    background-color: #e0f7fa;
+  }
+  input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.5);
+    cursor: pointer;
+  }
+  button { 
+    background-color: #ff9800; 
+    color: white; 
+    border: none; 
+    padding: 15px 30px; 
+    font-size: 22px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    margin-top: 25px; 
+    font-weight: bold; 
+    box-shadow: 0 5px 0 #e65100;
+    transition: all 0.1s;
+  }
+  button:active {
+    box-shadow: none;
+    transform: translateY(5px);
+  }
+  .feedback { 
+    margin-top: 12px; 
+    font-weight: bold; 
+    font-size: 18px;
+  }
+  h1 { 
+    color: #00838f; 
+    font-size: 34px;
+    text-shadow: 2px 2px #fff;
+  }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-link" style="display:inline-block; margin-bottom:20px; color:#00838f; text-decoration:none; font-weight:bold; font-size:18px;">← Voltar para as provas</a>
+
+<div class="quiz-container">
+  <h1>Prova de Cantigas e Parlendas! 🎶🧸</h1>
+  <p><b>Vamos testar a sua memória com as músicas e rimas mais divertidas!</b></p>
+  
+  <div class="question" id="d1">
+    <div class="drawing-container">
+      <svg viewBox="0 0 100 100" width="120" height="120">
+        <!-- Roda -->
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#00acc1" stroke-width="4" stroke-dasharray="8 4"/>
+        <!-- Pessoas (simplificadas) -->
+        <circle cx="50" cy="10" r="6" fill="#f44336" />
+        <circle cx="90" cy="50" r="6" fill="#4caf50" />
+        <circle cx="50" cy="90" r="6" fill="#ffeb3b" />
+        <circle cx="10" cy="50" r="6" fill="#9c27b0" />
+      </svg>
+    </div>
+    <p><b>1. Complete a cantiga de roda: "Ciranda, cirandinha, vamos todos..."</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q1" value="A"> A) Pular e brincar!</label>
+      <label class="option-label"><input type="radio" name="q1" value="B"> B) Cirandar!</label>
+      <label class="option-label"><input type="radio" name="q1" value="C"> C) Correr na praça!</label>
+    </div>
+    <div id="f1" class="feedback"></div>
+  </div>
+
+  <div class="question" id="d2">
+    <div class="drawing-container">
+      <svg viewBox="0 0 100 100" width="120" height="120">
+        <!-- Batatinha -->
+        <ellipse cx="50" cy="60" rx="30" ry="20" fill="#ffca28" stroke="#ffa000" stroke-width="2"/>
+        <circle cx="35" cy="55" r="2" fill="#d4e157" />
+        <circle cx="55" cy="65" r="3" fill="#d4e157" />
+        <circle cx="65" cy="50" r="2" fill="#d4e157" />
+        <!-- Raízes -->
+        <path d="M 50 80 Q 40 95 30 90 M 60 75 Q 70 95 80 90" fill="none" stroke="#795548" stroke-width="2"/>
+      </svg>
+    </div>
+    <p><b>2. "Batatinha quando nasce..." O que acontece depois na parlenda?</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q2" value="A"> A) Espalha a rama pelo chão.</label>
+      <label class="option-label"><input type="radio" name="q2" value="B"> B) Cresce muito grande.</label>
+      <label class="option-label"><input type="radio" name="q2" value="C"> C) Fica frita na panela.</label>
+    </div>
+    <div id="f2" class="feedback"></div>
+  </div>
+
+  <div class="question" id="d3">
+    <div class="drawing-container">
+      <svg viewBox="0 0 100 100" width="120" height="120">
+        <!-- Feijão e Arroz -->
+        <rect x="20" y="40" width="60" height="40" rx="5" fill="#e0e0e0" />
+        <circle cx="35" cy="60" r="15" fill="#8d6e63" /> <!-- Feijão -->
+        <circle cx="65" cy="60" r="15" fill="#fafafa" /> <!-- Arroz -->
+        <text x="50" y="30" font-family="Arial" font-size="20" font-weight="bold" fill="#424242" text-anchor="middle">1, 2...</text>
+      </svg>
+    </div>
+    <p><b>3. "Um, dois, feijão com arroz. Três, quatro..." Como continua?</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q3" value="A"> A) Bife no prato.</label>
+      <label class="option-label"><input type="radio" name="q3" value="B"> B) Feijão no prato.</label>
+      <label class="option-label"><input type="radio" name="q3" value="C"> C) Macarrão e queijo.</label>
+    </div>
+    <div id="f3" class="feedback"></div>
+  </div>
+
+  <div class="question" id="d4">
+      <div class="drawing-container">
+        <svg viewBox="0 0 100 100" width="120" height="120">
+          <!-- Sol e Cachimbo -->
+          <circle cx="20" cy="20" r="15" fill="#ffeb3b" />
+          <path d="M 50 60 L 50 80 Q 50 90 70 90 L 80 90 L 80 70 L 70 70 Q 60 70 60 60 Z" fill="#795548" />
+          <path d="M 70 70 Q 75 60 80 50 M 80 70 Q 85 60 90 50 M 75 70 Q 80 65 85 55" fill="none" stroke="#bdbdbd" stroke-width="2"/>
+        </svg>
+      </div>
+    <p><b>4. "Hoje é domingo...":</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q4" value="A"> A) Pede cachimbo!</label>
+      <label class="option-label"><input type="radio" name="q4" value="B"> B) Dia de brincar!</label>
+      <label class="option-label"><input type="radio" name="q4" value="C"> C) Vou dormir mais um pouquinho!</label>
+    </div>
+    <div id="f4" class="feedback"></div>
+  </div>
+
+  <div class="question" id="d5">
+    <div class="drawing-container">
+      <svg viewBox="0 0 100 100" width="120" height="120">
+        <!-- Cravo e Rosa brigando -->
+        <circle cx="30" cy="50" r="15" fill="#e91e63" /> <!-- Rosa -->
+        <circle cx="70" cy="50" r="15" fill="#f44336" /> <!-- Cravo (Vermelho) -->
+        <line x1="45" y1="50" x2="55" y2="50" stroke="#000" stroke-width="2" />
+        <!-- Serrilhado de briga -->
+        <path d="M 50 30 L 55 40 L 65 40 L 55 50 L 65 60 L 50 55 L 45 65 L 45 55 L 35 50" fill="none" stroke="#ff9800" stroke-width="2"/>
+      </svg>
+    </div>
+    <p><b>5. O que aconteceu na cantiga "O Cravo e a Rosa"?</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q5" value="A"> A) Os dois foram viajar juntos.</label>
+      <label class="option-label"><input type="radio" name="q5" value="B"> B) O Cravo brigou com a Rosa.</label>
+      <label class="option-label"><input type="radio" name="q5" value="C"> C) Eles fizeram um bolo delicioso.</label>
+    </div>
+    <div id="f5" class="feedback"></div>
+  </div>
+
+  <button onclick="checkAnswers()">Terminei! Corrigir Prova ✅</button>
+  <h2 id="resultMsg"></h2>
+</div>
+
+<script>
+function checkAnswers() {
+  let score = 0;
+  
+  const answers = {
+    q1: "B",
+    q2: "A",
+    q3: "B",
+    q4: "A",
+    q5: "B"
+  };
+
+  for(let i = 1; i <= 5; i++) {
+    let qName = "q" + i;
+    let selectedOption = document.querySelector('input[name="' + qName + '"]:checked');
+    let feedbackDiv = document.getElementById("f" + i);
+
+    if (!selectedOption) {
+      feedbackDiv.innerHTML = "Você esqueceu de marcar essa! 🙊";
+      feedbackDiv.style.color = "#e65100";
+      continue;
+    }
+
+    if (selectedOption.value === answers[qName]) {
+      feedbackDiv.innerHTML = "Correto! 🎉 Você acertou!";
+      feedbackDiv.style.color = "green";
+      score++;
+    } else {
+      feedbackDiv.innerHTML = "Ops! A resposta não era essa. Dê mais uma cantadinha e tente de novo!";
+      feedbackDiv.style.color = "red";
+    }
+  }
+
+  let resultMsg = document.getElementById("resultMsg");
+  if (score === 5) {
+    resultMsg.innerHTML = "UAU, PARABÉNS! VOCÊ É O MESTRE DAS CANTIGAS! 🏆✨🥇";
+    resultMsg.style.color = "green";
+  } else if (score >= 3) {
+    resultMsg.innerHTML = "Muito bem! Você acertou " + score + " de 5! Cantou bem! 🌟🎵";
+    resultMsg.style.color = "#0097a7";
+  } else {
+    resultMsg.innerHTML = "Você acertou " + score + " de 5. Continue cantando e brincando, você consegue! 🎶💪";
+    resultMsg.style.color = "#f57c00";
+  }
+}
+</script>
+
+</body>
+</html>

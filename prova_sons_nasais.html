@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prova do Daniel: Sons Nasais!</title>
+<style>
+  body { 
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+    background-color: #f3e5f5; /* Roxo bem clarinho */
+    color: #333; 
+    padding: 20px; 
+    text-align: center; 
+  }
+  .quiz-container { 
+    background: white; 
+    border-radius: 15px; 
+    padding: 20px; 
+    max-width: 700px; 
+    margin: auto; 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2); 
+    border: 5px dashed #9c27b0;
+  }
+  .question { 
+    margin-bottom: 25px; 
+    text-align: left; 
+    background: #e1bee7;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #8e24aa;
+  }
+  .drawing-container {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  .option-label {
+    background-color: #ffffff;
+    border: 2px solid #ab47bc;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+  }
+  .option-label:hover {
+    background-color: #f3e5f5;
+  }
+  input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.5);
+    cursor: pointer;
+  }
+  button { 
+    background-color: #00bcd4; 
+    color: white; 
+    border: none; 
+    padding: 15px 30px; 
+    font-size: 22px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    margin-top: 25px; 
+    font-weight: bold; 
+    box-shadow: 0 5px 0 #0097a7;
+    transition: all 0.1s;
+  }
+  button:active {
+    box-shadow: none;
+    transform: translateY(5px);
+  }
+  .feedback { 
+    margin-top: 12px; 
+    font-weight: bold; 
+    font-size: 18px;
+  }
+  h1 { 
+    color: #6a1b9a; 
+    font-size: 34px;
+    text-shadow: 2px 2px #fff;
+  }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-link" style="display:inline-block; margin-bottom:20px; color:#6a1b9a; text-decoration:none; font-weight:bold; font-size:18px;">← Voltar para as provas</a>
+
+<div class="quiz-container">
+  <h1>Prova do Daniel! 👃🗣️</h1>
+  <p><b>Descobrindo os Sons Nasais! (M, N, e o acento Til ~)</b></p>
+  
+  <div class="question" id="d1">
+    <div class="drawing-container">
+      <svg viewBox="0 0 100 100" width="120" height="120">
+        <circle cx="50" cy="62" r="30" fill="#e53935" />
+        <path d="M50 32 Q60 17 75 32 Q60 37 50 32 Z" fill="#4caf50" />
+        <line x1="50" y1="32" x2="55" y2="17" stroke="#795548" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="40" cy="55" r="4" fill="#fff" />
+        <circle cx="45" cy="50" r="2" fill="#fff" />
+      </svg>
+    </div>
+    <p><b>1. Qual destas palavras tem um som nasal? (Aquela que faz um "zumbidinho" no nariz!)</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q1" value="A"> A) Gato</label>
+      <label class="option-label"><input type="radio" name="q1" value="B"> B) Maçã</label>
+      <label class="option-label"><input type="radio" name="q1" value="C"> C) Pato</label>
+    </div>
+    <div id="f1" class="feedback"></div>
+  </div>
+
+  <div class="question" id="d2">
+    <div class="drawing-container">
+      <svg viewBox="0 0 100 100" width="120" height="120">
+        <circle cx="30" cy="70" r="12" fill="#673ab7" />
+        <rect x="38" y="30" width="4" height="40" fill="#673ab7" />
+        <circle cx="70" cy="60" r="12" fill="#673ab7" />
+        <rect x="78" y="20" width="4" height="40" fill="#673ab7" />
+        <rect x="38" y="20" width="44" height="10" fill="#673ab7" />
+        <path d="M78 30 Q90 30 90 45" fill="none" stroke="#673ab7" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p><b>2. Na palavra "CANTO", que letra ajuda a fazer o som nasal fofinho?</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q2" value="A"> A) A letra C</label>
+      <label class="option-label"><input type="radio" name="q2" value="B"> B) A letra T</label>
+      <label class="option-label"><input type="radio" name="q2" value="C"> C) A letra N</label>
+    </div>
+    <div id="f2" class="feedback"></div>
+  </div>
+
+  <div class="question" id="d3">
+    <div class="drawing-container">
+      <svg viewBox="0 0 100 100" width="120" height="120">
+        <!-- Pote -->
+        <rect x="25" y="45" width="50" height="45" rx="5" fill="#bbdefb" stroke="#64b5f6" stroke-width="2"/>
+        <rect x="30" y="55" width="40" height="25" rx="2" fill="#e3f2fd" />
+        <!-- Tampa -->
+        <rect x="20" y="25" width="60" height="20" rx="3" fill="#ff9800" stroke="#f57c00" stroke-width="2"/>
+        <rect x="25" y="20" width="50" height="5" rx="2" fill="#ffb74d" />
+        <line x1="20" y1="35" x2="80" y2="35" stroke="#f57c00" stroke-width="2" />
+        <text x="50" y="72" font-family="Arial" font-size="12" font-weight="bold" fill="#64b5f6" text-anchor="middle">MEL</text>
+      </svg>
+    </div>
+    <p><b>3. Lembre da regra: "Antes de P e B se usa...". Qual letra completa a palavra TA_PA?</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q3" value="A"> A) Letra M</label>
+      <label class="option-label"><input type="radio" name="q3" value="B"> B) Letra N</label>
+      <label class="option-label"><input type="radio" name="q3" value="C"> C) Letra O</label>
+    </div>
+    <div id="f3" class="feedback"></div>
+  </div>
+
+  <div class="question" id="d4">
+      <div class="drawing-container">
+        <svg viewBox="0 0 100 100" width="120" height="120">
+          <path d="M50 5 L60 20 L75 10 L80 25 L95 35 L85 50 L95 65 L80 75 L75 90 L60 80 L50 95 L40 80 L25 90 L20 75 L5 65 L15 50 L5 35 L20 25 L25 10 L40 20 Z" fill="#ff9800" />
+          <circle cx="50" cy="50" r="30" fill="#ffe082" />
+          <circle cx="30" cy="30" r="8" fill="#ffe082" />
+          <circle cx="70" cy="30" r="8" fill="#ffe082" />
+          <circle cx="40" cy="45" r="4" fill="#3e2723" />
+          <circle cx="60" cy="45" r="4" fill="#3e2723" />
+          <polygon points="45,55 55,55 50,62" fill="#5d4037" />
+          <path d="M50 62 Q45 70 40 65 M50 62 Q55 70 60 65" stroke="#5d4037" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <line x1="35" y1="55" x2="25" y2="52" stroke="#5d4037" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="35" y1="58" x2="25" y2="58" stroke="#5d4037" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="65" y1="55" x2="75" y2="52" stroke="#5d4037" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="65" y1="58" x2="75" y2="58" stroke="#5d4037" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    <p><b>4. Encontre o acento Til (~) que dá o som nasal para o rei da selva!</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q4" value="A"> A) Leao</label>
+      <label class="option-label"><input type="radio" name="q4" value="B"> B) Leão</label>
+      <label class="option-label"><input type="radio" name="q4" value="C"> C) Léao</label>
+    </div>
+    <div id="f4" class="feedback"></div>
+  </div>
+
+  <div class="question" id="d5">
+    <div class="drawing-container">
+      <svg viewBox="0 0 100 100" width="120" height="120">
+        <path d="M30 40 C 30 10, 70 10, 70 40 L 70 60 C 70 85, 55 90, 50 70 C 45 90, 30 85, 30 60 Z" fill="#ffffff" stroke="#b0bec5" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="40" cy="45" r="4" fill="#37474f" />
+        <circle cx="60" cy="45" r="4" fill="#37474f" />
+        <path d="M45 52 Q50 58 55 52" fill="none" stroke="#37474f" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p><b>5. Qual dessas palavras tem um som nasal?</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q5" value="A"> A) Dente</label>
+      <label class="option-label"><input type="radio" name="q5" value="B"> B) Dedo</label>
+      <label class="option-label"><input type="radio" name="q5" value="C"> C) Dia</label>
+    </div>
+    <div id="f5" class="feedback"></div>
+  </div>
+
+  <button onclick="checkAnswers()">Terminei! Corrigir Prova ✅</button>
+  <h2 id="resultMsg"></h2>
+</div>
+
+<script>
+function checkAnswers() {
+  let score = 0;
+  
+  const answers = {
+    q1: "B",
+    q2: "C",
+    q3: "A",
+    q4: "B",
+    q5: "A"
+  };
+
+  for(let i = 1; i <= 5; i++) {
+    let qName = "q" + i;
+    let selectedOption = document.querySelector('input[name="' + qName + '"]:checked');
+    let feedbackDiv = document.getElementById("f" + i);
+
+    if (!selectedOption) {
+      feedbackDiv.innerHTML = "Você esqueceu de marcar essa! 🙊";
+      feedbackDiv.style.color = "#e65100";
+      continue;
+    }
+
+    if (selectedOption.value === answers[qName]) {
+      feedbackDiv.innerHTML = "Correto! 🎉 Você acertou!";
+      feedbackDiv.style.color = "green";
+      score++;
+    } else {
+      feedbackDiv.innerHTML = "Ops! A resposta não era essa. Tente pensar mais um pouquinho!";
+      feedbackDiv.style.color = "red";
+    }
+  }
+
+  let resultMsg = document.getElementById("resultMsg");
+  if (score === 5) {
+    resultMsg.innerHTML = "UAU, PARABÉNS! VOCÊ TIROU NOTA 10! 🏆✨🥇";
+    resultMsg.style.color = "green";
+  } else if (score >= 3) {
+    resultMsg.innerHTML = "Muito bem! Você acertou " + score + " de 5! Continue assim! 🌟🤓";
+    resultMsg.style.color = "#2196f3";
+  } else {
+    resultMsg.innerHTML = "Você acertou " + score + " de 5. Continue estudando, você consegue! 📚💪";
+    resultMsg.style.color = "#f57c00";
+  }
+}
+</script>
+
+</body>
+</html>

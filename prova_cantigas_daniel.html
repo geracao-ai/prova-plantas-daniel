@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prova do Daniel: Cantigas, Parlendas e Alfabeto!</title>
+<style>
+  body { 
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+    background-color: #fff9c4; /* Amarelo clarinho */
+    color: #333; 
+    padding: 20px; 
+    text-align: center; 
+  }
+  .quiz-container { 
+    background: white; 
+    border-radius: 15px; 
+    padding: 20px; 
+    max-width: 700px; 
+    margin: auto; 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2); 
+    border: 5px dashed #ff9800;
+  }
+  .question { 
+    margin-bottom: 25px; 
+    text-align: left; 
+    background: #e1f5fe;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #03a9f4;
+  }
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  .option-label {
+    background-color: #ffffff;
+    border: 2px solid #29b6f6;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+  }
+  .option-label:hover {
+    background-color: #b3e5fc;
+  }
+  input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.5);
+    cursor: pointer;
+  }
+  button { 
+    background-color: #4caf50; 
+    color: white; 
+    border: none; 
+    padding: 15px 30px; 
+    font-size: 22px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    margin-top: 25px; 
+    font-weight: bold; 
+    box-shadow: 0 5px 0 #2e7d32;
+    transition: all 0.1s;
+  }
+  button:active {
+    box-shadow: none;
+    transform: translateY(5px);
+  }
+  .feedback { 
+    margin-top: 12px; 
+    font-weight: bold; 
+    font-size: 18px;
+  }
+  h1 { 
+    color: #e65100; 
+    font-size: 34px;
+    text-shadow: 2px 2px #fff;
+  }
+  .emoji-icon {
+    font-size: 30px;
+  }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-link" style="display:inline-block; margin-bottom:20px; color:#e65100; text-decoration:none; font-weight:bold; font-size:18px;">← Voltar para as provas</a>
+
+<div class="quiz-container">
+  <h1>Prova do Daniel! 🚀🌟</h1>
+  <p><b>Cantigas, Parlendas e Alfabeto - Múltipla Escolha!</b></p>
+  
+  <div class="question" id="d1">
+    <p><span class="emoji-icon">💂</span> <b>1. Complete a cantiga: "Marcha soldado, cabeça de..."</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q1" value="A"> A) Mel</label>
+      <label class="option-label"><input type="radio" name="q1" value="B"> B) Papel</label>
+      <label class="option-label"><input type="radio" name="q1" value="C"> C) Quartel</label>
+    </div>
+    <div id="f1" class="feedback"></div>
+  </div>
+
+  <div class="question" id="d2">
+    <p><span class="emoji-icon">🌿</span> <b>2. "Alecrim, alecrim dourado, que nasceu no campo sem ser..."</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q2" value="A"> A) Regado</label>
+      <label class="option-label"><input type="radio" name="q2" value="B"> B) Plantado</label>
+      <label class="option-label"><input type="radio" name="q2" value="C"> C) Semeado</label>
+    </div>
+    <div id="f2" class="feedback"></div>
+  </div>
+
+  <div class="question" id="d3">
+    <p><span class="emoji-icon">🐁</span> <b>3. Trava-língua: "O rato roeu a roupa do rei de..."</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q3" value="A"> A) Roraima</label>
+      <label class="option-label"><input type="radio" name="q3" value="B"> B) Roma</label>
+      <label class="option-label"><input type="radio" name="q3" value="C"> C) Rua</label>
+    </div>
+    <div id="f3" class="feedback"></div>
+  </div>
+
+  <div class="question" id="d4">
+    <p><span class="emoji-icon">🔤</span> <b>4. Qual é a primeira letra do nosso alfabeto?</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q4" value="A"> A) Letra Z</label>
+      <label class="option-label"><input type="radio" name="q4" value="B"> B) Letra A</label>
+      <label class="option-label"><input type="radio" name="q4" value="C"> C) Letra B</label>
+    </div>
+    <div id="f4" class="feedback"></div>
+  </div>
+
+  <div class="question" id="d5">
+    <p><span class="emoji-icon">🖐️</span> <b>5. O alfabeto é formado por consoantes e também por cinco... (A, E, I, O, U)</b></p>
+    <div class="options">
+      <label class="option-label"><input type="radio" name="q5" value="A"> A) Vogais</label>
+      <label class="option-label"><input type="radio" name="q5" value="B"> B) Numerais</label>
+      <label class="option-label"><input type="radio" name="q5" value="C"> C) Palavras</label>
+    </div>
+    <div id="f5" class="feedback"></div>
+  </div>
+
+  <button onclick="checkAnswers()">Terminei! Corrigir Prova ✅</button>
+  <h2 id="resultMsg"></h2>
+</div>
+
+<script>
+function checkAnswers() {
+  let score = 0;
+  
+  const answers = {
+    q1: "B",
+    q2: "C",
+    q3: "B",
+    q4: "B",
+    q5: "A"
+  };
+
+  for(let i = 1; i <= 5; i++) {
+    let qName = "q" + i;
+    let selectedOption = document.querySelector('input[name="' + qName + '"]:checked');
+    let feedbackDiv = document.getElementById("f" + i);
+
+    if (!selectedOption) {
+      feedbackDiv.innerHTML = "Você esqueceu de marcar essa! 🙊";
+      feedbackDiv.style.color = "#e65100";
+      continue;
+    }
+
+    if (selectedOption.value === answers[qName]) {
+      feedbackDiv.innerHTML = "Correto! 🎉 Você acertou!";
+      feedbackDiv.style.color = "green";
+      score++;
+    } else {
+      feedbackDiv.innerHTML = "Ops! A resposta não era essa. Tente pensar mais um pouquinho!";
+      feedbackDiv.style.color = "red";
+    }
+  }
+
+  let resultMsg = document.getElementById("resultMsg");
+  if (score === 5) {
+    resultMsg.innerHTML = "UAU, PARABÉNS! VOCÊ TIROU NOTA 10! 🏆✨🥇";
+    resultMsg.style.color = "green";
+  } else if (score >= 3) {
+    resultMsg.innerHTML = "Muito bem! Você acertou " + score + " de 5! Continue assim! 🌟🤓";
+    resultMsg.style.color = "#2196f3";
+  } else {
+    resultMsg.innerHTML = "Você acertou " + score + " de 5. Continue estudando, você consegue! 📚💪";
+    resultMsg.style.color = "#f57c00";
+  }
+}
+</script>
+
+</body>
+</html>
