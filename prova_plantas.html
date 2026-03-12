@@ -131,6 +131,7 @@
   <h2 id="resultMsg"></h2>
 </div>
 
+<script src="aluno-progresso.js"></script>
 <script>
 function checkAnswers() {
   let score = 0;
@@ -211,12 +212,19 @@ function checkAnswers() {
   }
 
   let resultMsg = document.getElementById("resultMsg");
+  let nota = score * 2;
+  
   if (score === 5) {
     resultMsg.innerHTML = "PARABÉNS, DANIEL! VOCÊ TIROU NOTA 10! 🏆✨🥇";
     resultMsg.style.color = "green";
   } else {
     resultMsg.innerHTML = "Você acertou " + score + " de 5! Continue estudando, você é muito inteligente! 📚🤓";
     resultMsg.style.color = "#f57c00";
+  }
+  
+  // Salvar nota
+  if (alunoProgresso.getNomeAluno()) {
+    alunoProgresso.salvarNota('plantas', nota);
   }
 }
 </script>

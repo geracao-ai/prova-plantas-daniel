@@ -198,6 +198,7 @@
   <h2 id="resultMsg"></h2>
 </div>
 
+<script src="aluno-progresso.js"></script>
 <script>
 function checkAnswers() {
   let score = 0;
@@ -232,6 +233,8 @@ function checkAnswers() {
   }
 
   let resultMsg = document.getElementById("resultMsg");
+  let nota = score * 2;
+  
   if (score === 5) {
     resultMsg.innerHTML = "UAU, PARABÉNS! VOCÊ É O MESTRE DAS CANTIGAS! 🏆✨🥇";
     resultMsg.style.color = "green";
@@ -241,6 +244,10 @@ function checkAnswers() {
   } else {
     resultMsg.innerHTML = "Você acertou " + score + " de 5. Continue cantando e brincando, você consegue! 🎶💪";
     resultMsg.style.color = "#f57c00";
+  }
+  
+  if (alunoProgresso.getNomeAluno()) {
+    alunoProgresso.salvarNota('cantigas_parlendas', nota);
   }
 }
 </script>

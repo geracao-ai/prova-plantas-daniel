@@ -213,7 +213,8 @@
         <button class="btn-submit" style="margin-top: 1rem; background-color: #6b7280;" onclick="location.reload()">Tentar Novamente</button>
     </div>
 
-    <script>
+    <script src="aluno-progresso.js"></script>
+<script>
         function calculateScore() {
             let form = document.getElementById('quizForm');
             let totalQuestions = 8;
@@ -242,7 +243,6 @@
 
             if (!allAnswered) {
                 alert("Por favor, responda todas as questões antes de verificar o resultado.");
-                // Retirar classes de erro/acerto se não respondeu tudo
                 document.querySelectorAll('label').forEach(l => {
                     l.classList.remove('correct-bg', 'error-bg');
                 });
@@ -251,6 +251,8 @@
 
             document.getElementById('result-container').style.display = 'block';
             document.getElementById('scoreDisplay').innerText = score + " / " + totalQuestions;
+            
+            let nota = Math.round(score * 1.25);
             
             let feedback = document.getElementById('feedbackMessage');
             if(score === 8) {
@@ -261,8 +263,11 @@
                 feedback.innerText = "Continue estudando! É importante observar e escutar melhor a paisagem sonora ao seu redor.";
             }
 
-            // scroll animado para o resutado
             document.getElementById('result-container').scrollIntoView({ behavior: 'smooth' });
+            
+            if (alunoProgresso.getNomeAluno()) {
+                alunoProgresso.salvarNota('paisagem_sonora', nota);
+            }
         }
     </script>
 </body>
