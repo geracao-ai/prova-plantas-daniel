@@ -35,6 +35,51 @@
     color: #666;
     margin-top: 15px;
   }
+  .user-bar {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+  }
+  .user-bar .ola {
+    font-size: 18px;
+    color: #666;
+  }
+  .user-bar .nome {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4caf50;
+  }
+  .btn-trocar {
+    background: #2196f3;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Comic Sans MS', cursive;
+  }
+  .btn-trocar:hover {
+    background: #1976d2;
+  }
+  .btn-reset {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Comic Sans MS', cursive;
+  }
+  .btn-reset:hover {
+    background: #d32f2f;
+  }
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -80,6 +125,36 @@
   .card-desc {
     font-size: 16px;
     opacity: 0.8;
+    margin-bottom: 15px;
+  }
+  .card-progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .nota-badge {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .nota-alta {
+    background: #4caf50;
+    color: white;
+  }
+  .nota-baixa {
+    background: #ff9800;
+    color: white;
+  }
+  .nota-pendente {
+    background: #e0e0e0;
+    color: #666;
+  }
+  .tentativas {
+    color: #999;
+    font-size: 12px;
   }
   .card:hover .card-title {
     transform: scale(1.05);
@@ -151,41 +226,97 @@
   <p class="subtitle">Escolha qual prova você quer fazer! 🚀</p>
 </div>
 
+<div class="user-bar">
+  <span class="ola">Olá, <span class="nome" id="nome-aluno">...</span>!</span>
+  <button class="btn-trocar" onclick="trocarNome()">Trocar nome</button>
+  <button class="btn-reset" onclick="alunoProgresso.resetar()">Apagar progresso</button>
+</div>
+
 <div class="grid">
   <a href="prova_plantas.html" class="card card-plantas">
     <span class="card-icon">🌱</span>
     <div class="card-title">Plantas</div>
     <div class="card-desc">Aprenda sobre as partes das plantas!</div>
+    <div class="card-progress" id="progresso-plantas"></div>
   </a>
 
   <a href="prova_cantigas_parlendas.html" class="card card-cantigas">
     <span class="card-icon">🎶</span>
     <div class="card-title">Cantigas e Parlendas</div>
     <div class="card-desc">Teste sua memória com músicas e rimas!</div>
+    <div class="card-progress" id="progresso-cantigas_parlendas"></div>
   </a>
 
   <a href="prova_cantigas_daniel.html" class="card card-alfabeto">
     <span class="card-icon">🔤</span>
     <div class="card-title">Cantigas e Alfabeto</div>
     <div class="card-desc">Aprenda as letras e cantigas!</div>
+    <div class="card-progress" id="progresso-cantigas_alfabeto"></div>
   </a>
 
   <a href="prova_sons_nasais.html" class="card card-sons">
     <span class="card-icon">👃</span>
     <div class="card-title">Sons Nasais</div>
     <div class="card-desc">Descubra os sons M, N e o Til ~</div>
+    <div class="card-progress" id="progresso-sons_nasais"></div>
   </a>
 
   <a href="prova_paisagem_sonora.html" class="card card-paisagem">
     <span class="card-icon">🔊</span>
     <div class="card-title">Paisagem Sonora</div>
     <div class="card-desc">Explore os sons ao nosso redor!</div>
+    <div class="card-progress" id="progresso-paisagem_sonora"></div>
   </a>
 </div>
 
 <footer>
   <p>Feito com ❤️ para o Daniel!</p>
 </footer>
+
+<script src="aluno-progresso.js"></script>
+<script>
+  function trocarNome() {
+    const novoNome = prompt('Qual é o seu nome?');
+    if (novoNome && novoNome.trim()) {
+      localStorage.setItem('prova_daniel_aluno', novoNome.trim());
+      location.reload();
+    }
+  }
+  
+  function getNotaDisplay(prova) {
+    const status = alunoProgresso.getStatusProva(prova);
+    if (status.nota !== null) {
+      const classe = status.nota >= 7 ? 'nota-alta' : 'nota-baixa';
+      return `<span class="nota-badge ${classe}">${status.nota}/10</span>`;
+    }
+    return '<span class="nota-badge nota-pendente">Pendente</span>';
+  }
+  
+  function getTentativasDisplay(prova) {
+    const status = alunoProgresso.getStatusProva(prova);
+    if (status.tentativas > 0) {
+      return `<small class="tentativas">${status.tentativas}x</small>`;
+    }
+    return '';
+  }
+  
+  function atualizarProgressos() {
+    const provas = ['plantas', 'cantigas_parlendas', 'cantigas_alfabeto', 'sons_nasais', 'paisagem_sonora'];
+    
+    provas.forEach(prova => {
+      const container = document.getElementById(`progresso-${prova}`);
+      if (container) {
+        container.innerHTML = getNotaDisplay(prova) + ' ' + getTentativasDisplay(prova);
+      }
+    });
+  }
+  
+  // Iniciar
+  const nome = alunoProgresso.iniciar();
+  if (nome) {
+    atualizarProgressos();
+  }
+</script>
 
 </body>
 </html>
